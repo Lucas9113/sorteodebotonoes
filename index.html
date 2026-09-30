@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elige tu destino</title>
+    <meta name="description" content="Juego interactivo de elegir tu destino con botones de colores.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <h1 class="title">Elige tu destino</h1>
+        
+        <div id="game-area">
+            <p class="subtitle">Selecciona una opción para descubrir tu suerte</p>
+            <div class="button-container">
+                <button id="btn-red" class="choice-btn red">Rojo</button>
+                <button id="btn-blue" class="choice-btn blue">Azul</button>
+            </div>
+        </div>
+        
+        <div id="result-area" class="hidden">
+            <h2 id="result-message" class="result-text"></h2>
+            <button id="btn-reset" class="reset-btn">Volver a jugar</button>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

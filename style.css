@@ -1,0 +1,206 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --red-btn: #ef4444;
+    --red-btn-hover: #dc2626;
+    --blue-btn: #3b82f6;
+    --blue-btn-hover: #2563eb;
+    --reset-btn: #10b981;
+    --reset-btn-hover: #059669;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 3.5rem 4rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    max-width: 650px;
+    width: 90%;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #a855f7, #ec4899, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.choice-btn {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1.5rem 3.5rem;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    outline: none;
+}
+
+.choice-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.choice-btn:hover::after {
+    opacity: 1;
+}
+
+.choice-btn:active {
+    transform: scale(0.95);
+}
+
+.choice-btn.red {
+    background-color: var(--red-btn);
+    box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.choice-btn.red:hover {
+    background-color: var(--red-btn-hover);
+    box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.choice-btn.blue {
+    background-color: var(--blue-btn);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.choice-btn.blue:hover {
+    background-color: var(--blue-btn-hover);
+    box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#result-area {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.result-text {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    letter-spacing: -1px;
+}
+
+.result-text.win {
+    color: #4ade80;
+    text-shadow: 0 0 25px rgba(74, 222, 128, 0.5);
+}
+
+.result-text.lose {
+    color: #f87171;
+    text-shadow: 0 0 25px rgba(248, 113, 113, 0.5);
+}
+
+.reset-btn {
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--reset-btn);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px -3px rgba(16, 185, 129, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.reset-btn:hover {
+    background-color: var(--reset-btn-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -3px rgba(16, 185, 129, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+.confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
+}
